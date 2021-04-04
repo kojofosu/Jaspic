@@ -9,3 +9,5 @@ This is an android application that scales your photos or images with aspect rat
 [Blur Image](https://github.com/sparrow007/BlurImage)
 
 [Lottie](https://github.com/airbnb/lottie-android)
+
+[Satya Pavan Kantamani](https://betterprogramming.pub/aspect-ratio-with-constraint-layout-with-constraintdimensionratio-d55828ec4aae)
