@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.mcdev.centercrop"
+        applicationId "com.mcdev.jaspic"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

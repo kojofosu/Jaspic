@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mcdev.centercrop">
+    package="com.mcdev.jaspic">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -14,11 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CenterCrop">
-        <activity android:name=".CropActivity"
+        <activity android:name="com.mcdev.jaspic.CropActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
 
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.mcdev.jaspic.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
