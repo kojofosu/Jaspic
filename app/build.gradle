@@ -47,4 +47,7 @@ dependencies {
 
     //blur image
     implementation 'com.jackandphantom.android:blurimage:1.2.0'
+
+    //dexter permissions
+    implementation 'com.karumi:dexter:6.2.2'
 }
