@@ -14,8 +14,8 @@ import com.karumi.dexter.listener.*
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity2 : AppCompatActivity() {
-    private val TAG = MainActivity2::class.qualifiedName
+class MainActivity : AppCompatActivity() {
+    private val TAG = MainActivity::class.qualifiedName
     private val requestCode: Int = 1049
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun checkV1StoragePermission() {
-        Dexter.withContext(this@MainActivity2)
+        Dexter.withContext(this@MainActivity)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse?) {
@@ -40,7 +40,7 @@ class MainActivity2 : AppCompatActivity() {
                     }
 
                     override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
-                        Toast.makeText(this@MainActivity2, "Permission Denied. Go to settings and enable storage permission to continue. ", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@MainActivity, getString(R.string.permission_denied_toast), Toast.LENGTH_LONG).show()
                     }
 
                     override fun onPermissionRationaleShouldBeShown(permissionRequest: PermissionRequest?, permissionToken: PermissionToken?) {
@@ -58,7 +58,7 @@ class MainActivity2 : AppCompatActivity() {
             val uri : Uri? = data?.data
 
 
-            val intent = Intent(applicationContext, CropActivity2::class.java)
+            val intent = Intent(applicationContext, CropActivity::class.java)
             intent.data = uri
             startActivity(intent)
         }

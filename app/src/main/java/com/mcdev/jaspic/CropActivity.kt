@@ -10,8 +10,8 @@ import com.jackandphantom.blurimage.BlurImage
 import kotlinx.android.synthetic.main.activity_crop.*
 import java.io.IOException
 
-class CropActivity2 : AppCompatActivity() {
-    private val TAG = CropActivity2::class.qualifiedName
+class CropActivity : AppCompatActivity() {
+    private val TAG = CropActivity::class.qualifiedName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class CropActivity2 : AppCompatActivity() {
             val data = intent.data
 
             try {
-                var bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data)
+                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data)
                 cropIV.setImageURI(data)
                 BlurImage.with(this).load(bitmap).intensity(5F).Async(true).into(blurIV)
             } catch (e: IOException) {
@@ -37,7 +37,7 @@ class CropActivity2 : AppCompatActivity() {
             imageConstraintLayout.isDrawingCacheEnabled = true
             val bitmap : Bitmap = imageConstraintLayout.drawingCache
             MediaStore.Images.Media.insertImage(applicationContext.contentResolver, bitmap, null, null)
-            Toast.makeText(applicationContext, "Image saved!", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, getString(R.string.image_saved), Toast.LENGTH_LONG).show()
             this.finish()
         }
 
