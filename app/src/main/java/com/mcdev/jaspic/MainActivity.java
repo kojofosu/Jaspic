@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onActivityResult: result ok");
             Uri uri = data.getData();
 
-            Intent intent = new Intent(getApplicationContext(), CropActivity.class);
+            Intent intent = new Intent(getApplicationContext(), CropActivity2.class);
             intent.setData(uri);
             startActivity(intent);
         }

@@ -14,6 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CenterCrop">
+        <activity android:name="com.mcdev.jaspic.CropActivity2"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar">
+
+        </activity>
         <activity android:name="com.mcdev.jaspic.CropActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
 
