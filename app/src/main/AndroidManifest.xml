@@ -13,9 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CenterCrop">
+
         <activity android:name="com.mcdev.jaspic.CropActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
         </activity>
+
         <activity android:name="com.mcdev.jaspic.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

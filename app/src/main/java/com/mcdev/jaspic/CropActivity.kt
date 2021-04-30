@@ -24,8 +24,13 @@ class CropActivity : AppCompatActivity() {
 
         //getIntent
         if (intent != null) {
-            var action = intent.action
-            val data = intent.data
+            val action = intent.action
+            var data = intent.data
+
+            if (action.equals(Intent.ACTION_SEND) && intent.type != null) {
+                /*get Uri*/
+                data = intent!!.getParcelableExtra(Intent.EXTRA_STREAM)
+            }
 
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data)
