@@ -12,17 +12,21 @@ import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.*
 import com.karumi.dexter.listener.single.PermissionListener
-import kotlinx.android.synthetic.main.activity_main.*
+import com.mcdev.jaspic.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.qualifiedName
     private val requestCode: Int = 1049
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        activity_main.setOnClickListener {
+
+        binding.activityMain.setOnClickListener {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
                 checkV1StoragePermission()
             }

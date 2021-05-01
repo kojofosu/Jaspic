@@ -10,7 +10,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.jackandphantom.blurimage.BlurImage
-import kotlinx.android.synthetic.main.activity_crop.*
+import com.mcdev.jaspic.databinding.ActivityCropBinding
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -18,9 +18,12 @@ import java.io.IOException
 class CropActivity : AppCompatActivity() {
     private val TAG = CropActivity::class.qualifiedName
 
+    private lateinit var binding: ActivityCropBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crop)
+        binding = ActivityCropBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //getIntent
         if (intent != null) {
@@ -34,8 +37,8 @@ class CropActivity : AppCompatActivity() {
 
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data)
-                cropIV.setImageURI(data)
-                BlurImage.with(this).load(bitmap).intensity(5F).Async(true).into(blurIV)
+                binding.cropIV.setImageURI(data)
+                BlurImage.with(this).load(bitmap).intensity(5F).Async(true).into(binding.blurIV)
             } catch (e: IOException) {
                 Log.d(TAG, "onCreate: $e")
             }
@@ -43,16 +46,16 @@ class CropActivity : AppCompatActivity() {
         }
 
         //save image
-        saveBtn.setOnClickListener {
-            imageConstraintLayout.isDrawingCacheEnabled = true
-            val bitmap : Bitmap = imageConstraintLayout.drawingCache
+        binding.saveBtn.setOnClickListener {
+            binding.imageConstraintLayout.isDrawingCacheEnabled = true
+            val bitmap : Bitmap = binding.imageConstraintLayout.drawingCache
             saveImageToExternalStorage(bitmap)
             Toast.makeText(applicationContext, getString(R.string.image_saved), Toast.LENGTH_LONG).show()
             this.finish()
         }
 
         //discard changes
-        discardIV.setOnClickListener { this.finish() }
+        binding.discardIV.setOnClickListener { this.finish() }
     }
 
     private fun refreshGallery(file : File) {
