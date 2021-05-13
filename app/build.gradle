@@ -27,7 +27,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -51,7 +51,8 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
     //blur image
-    implementation 'com.jackandphantom.android:blurimage:1.2.0'
+//    implementation 'com.jackandphantom.android:blurimage:1.2.0' //jcenter() deprecated
+    implementation 'com.github.sparrow007:BlurImage:master'
 
     //dexter permissions
     implementation 'com.karumi:dexter:6.2.2'
